@@ -12,11 +12,12 @@ function App() {
     console.log(item);
   };
 
+  const [alertVisible, setAlertVisibility] = useState(false);
+
   const handleAction = (item: string) => {
     console.log(item);
+    setAlertVisibility(true);
   };
-
-  const [clickedButton, setClickedButton] = useState("");
 
   return (
     <div>
@@ -25,9 +26,15 @@ function App() {
         heading={"Cities"}
         onSelectItem={handleSelectItem}
       />
-      <Alert>
-        Hello <span>World</span>
-      </Alert>
+      {alertVisible && (
+        <Alert
+          onClose={() => {
+            setAlertVisibility(false);
+          }}
+        >
+          Hello <span>World</span>
+        </Alert>
+      )}
       <ButtonComponent color="primary" handleAction={handleAction}>
         Clicked
       </ButtonComponent>
