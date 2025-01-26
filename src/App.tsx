@@ -19,7 +19,6 @@ function App() {
   return (
     <>
       <h1>List</h1>
-      {getMessage()}
       {getMessageShorter()}
       <ul className="list-group">
         {items.map((item, idx) => (
