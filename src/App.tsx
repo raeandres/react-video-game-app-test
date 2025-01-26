@@ -1,5 +1,7 @@
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
+import ButtonComponent from "./components/ButtonComponent";
+import { useState } from "react";
 
 // import Message from "./Message";
 
@@ -9,6 +11,12 @@ function App() {
   const handleSelectItem = (item: string) => {
     console.log(item);
   };
+
+  const handleAction = (item: string) => {
+    console.log(item);
+  };
+
+  const [clickedButton, setClickedButton] = useState("");
 
   return (
     <div>
@@ -20,6 +28,9 @@ function App() {
       <Alert>
         Hello <span>World</span>
       </Alert>
+      <ButtonComponent color="primary" handleAction={handleAction}>
+        Clicked
+      </ButtonComponent>
     </div>
   );
 }
