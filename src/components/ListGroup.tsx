@@ -3,15 +3,16 @@ import { MouseEvent, useState } from "react";
 interface Props {
   items: string[];
   heading: string;
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup(props: Props) {
+function ListGroup({ items, heading, onSelectItem }: Props) {
   const getMessage = () => {
-    return props.items.length === 0 ? <p>No Item found</p> : null;
+    return items.length === 0 ? <p>No Item found</p> : null;
   };
 
   const getMessageShorter = () => {
-    return props.items.length === 0 && <p>No Item found</p>; // more concise way
+    return items.length === 0 && <p>No Item found</p>; // more concise way
   };
 
   // hook
@@ -26,10 +27,10 @@ function ListGroup(props: Props) {
 
   return (
     <>
-      <h1>{props.heading}</h1>
+      <h1>{heading}</h1>
       {getMessageShorter()}
       <ul className="list-group">
-        {props.items.map((item, idx) => (
+        {items.map((item, idx) => (
           <li
             className={
               selectedIndex == idx
@@ -39,6 +40,7 @@ function ListGroup(props: Props) {
             key={idx}
             onClick={() => {
               setSelectedIndex(idx);
+              onSelectItem(item);
             }}
           >
             {item}
