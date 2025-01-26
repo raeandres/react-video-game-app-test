@@ -1,4 +1,5 @@
 import ListGroup from "./components/ListGroup";
+import Alert from "./components/Alert";
 
 // import Message from "./Message";
 
@@ -16,6 +17,7 @@ function App() {
         heading={"Cities"}
         onSelectItem={handleSelectItem}
       />
+      <Alert>Hello World"</Alert>
     </div>
   );
 }
