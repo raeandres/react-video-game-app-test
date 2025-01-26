@@ -6,10 +6,16 @@ function App() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
   items = [];
 
+  const message = items.length === 0 ? <p>No Item found</p> : null;
+
+  const getMessage = () => {
+    return items.length === 0 ? <p>No Item found</p> : null;
+  };
+
   return (
     <>
       <h1>List</h1>
-      {items.length === 0 ? <p>No Item found</p> : null}
+      {getMessage()}
       <ul className="list-group">
         {items.map((item, idx) => (
           <li key={idx}>{item}</li>
