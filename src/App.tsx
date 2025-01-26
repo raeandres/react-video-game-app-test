@@ -12,10 +12,15 @@ function App() {
     return items.length === 0 ? <p>No Item found</p> : null;
   };
 
+  const getMessageShorter = () => {
+    return items.length === 0 && <p>No Item found</p>; // more concise way
+  };
+
   return (
     <>
       <h1>List</h1>
       {getMessage()}
+      {getMessageShorter()}
       <ul className="list-group">
         {items.map((item, idx) => (
           <li key={idx}>{item}</li>
